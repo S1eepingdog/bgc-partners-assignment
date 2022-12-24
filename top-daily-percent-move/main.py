@@ -9,6 +9,12 @@ URL = "https://query1.finance.yahoo.com/v7/finance/chart/{}?range={" \
 
 
 def getAnalysis(tickers="MSFT,F,CMG", range="3mo"):
+    """
+    get top daily percent move for each ticker input in given range
+    :param tickers: tickers list
+    :param range: given range
+    :return: top 5 daily percent move in json format
+    """
     ts = tickers.split(",")
     res = []
     for ticker in ts:
@@ -34,6 +40,11 @@ def getAnalysis(tickers="MSFT,F,CMG", range="3mo"):
 
 
 def getData(url):
+    """
+    get data from url and handle the exceptions
+    :param url: URL
+    :return: response data in json format
+    """
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, '
